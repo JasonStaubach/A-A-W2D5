@@ -44,6 +44,24 @@ class List
         @items[0]
     end
 
+    def print
+        puts "-" * 35
+        puts " " * 7 + "GROCERIES"
+        puts "-" * 35
+        puts "Index | Item            | Deadline"
+        puts "-" * 35
+        (0...self.size).each do |i|
+            puts i.to_s.ljust(6) + "| " +  @items[i].title.ljust(16) + "|"+ @items[i].deadline
+        end
+    end
+
+    def print_full_item(i)
+        return nil if !self.valid_index?(i)
+        puts "-" * 35
+        puts @items[i].title.ljust(20) + @items[i].deadline
+        puts @items[i].discription
+        puts "-" * 35
+    end
 
 end
 
@@ -52,21 +70,24 @@ i.add_item("chores","2023-5-5","wash the dishes")
 i.add_item("steam", "2021-11-12")
 i.add_item("invaliddate", "12-2-12", "haha")
 
-print i.size
-puts
-print i.valid_index?(0)
-print i.valid_index?(2)
-print i.valid_index?(3)
-print i.valid_index?(-1)
-puts
-print i.swap(1,2)
-print i.swap(0,3)
-print i.swap(-1,1)
-print i.swap(2,2)
-puts
-print i[1]
-print i[-1]
-print i[2]
-print i[4]
-puts
-print i.priority
+i.print
+i.print_full_item(0)
+i.print_full_item(6)
+# print i.size
+# puts
+# print i.valid_index?(0)
+# print i.valid_index?(2)
+# print i.valid_index?(3)
+# print i.valid_index?(-1)
+# puts
+# print i.swap(1,2)
+# print i.swap(0,3)
+# print i.swap(-1,1)
+# print i.swap(2,2)
+# puts
+# print i[1]
+# print i[-1]
+# print i[2]
+# print i[4]
+# puts
+# print i.priority
