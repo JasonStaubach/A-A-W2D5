@@ -1,19 +1,20 @@
-class Passenger
-    attr_reader :name
+class Flight
+    attr_reader :passengers
     
-    def initialize(name)
-        @name = name
-        @flight_numbers = []
+    def initialize(flightN, cap)
+        @flight_number = flightN
+        @capacity = cap
+        @passengers = []
     end
 
-    def has_flight?(str)
-        @flight_numbers.include?(str)
+    def full?
+        return true if @passengers.length == @capacity
+        false
     end
 
-    def add_flight(str)
-        if !self.has_flight(str)
-            @flight_numbers << str.upcase
-        end
+    def board_passenger(passenger)
+        return if self.full?
+
     end
-        
+
 end
