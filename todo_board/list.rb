@@ -63,16 +63,41 @@ class List
         puts "-" * 35
     end
 
+    def print_priority
+        print_full_item(0)
+    end
+
+    def up(i, amount = 1)
+        return false if !valid_index?(i)
+        while amount > 0 && i > 0
+            @items[i],@items[i-1] = @items[i-1],@items[i]
+            amount -= 1
+            i -= 1
+        end
+        true
+    end
+
+    def down(i, amount = 1)
+        return false if !valid_index?(i)
+        while amount > 0 && i < @items.length - 1
+            @items[i],@items[i+1] = @items[i+1],@items[i]
+            amount -= 1
+            i += 1
+        end
+        true
+    end 
+
+
 end
 
-i = List.new('help')
-i.add_item("chores","2023-5-5","wash the dishes")
-i.add_item("steam", "2021-11-12")
-i.add_item("invaliddate", "12-2-12", "haha")
+# i = List.new('help')
+# i.add_item("chores","2023-5-5","wash the dishes")
+# i.add_item("steam", "2021-11-12")
+# i.add_item("invaliddate", "12-2-12", "haha")
 
-i.print
-i.print_full_item(0)
-i.print_full_item(6)
+# i.print
+# i.print_full_item(0)
+# i.print_priority
 # print i.size
 # puts
 # print i.valid_index?(0)
