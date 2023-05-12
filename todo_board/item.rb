@@ -7,6 +7,27 @@ class Item
         true 
     end
 
+    attr_reader :deadline
+    attr_accessor :title, :discription
+
+    def initialize(title, deadline, discription)
+        @title = title
+        if Item.valid_date?(deadline)
+            @deadline = deadline 
+        else
+            raise "invalid date"
+        end
+        @discription = discription
+    end
+
+    def deadline=(new_dl)
+        if Item.valid_date?(new_dl)
+            @deadline = new_dl
+        else
+            raise "invalid date"
+        end
+    end
+
 end
 
 
