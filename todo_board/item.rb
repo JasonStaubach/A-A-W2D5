@@ -30,9 +30,3 @@ class Item
 
 end
 
-
-puts Item.valid_date?('2019-10-25') # true
-puts Item.valid_date?('1912-06-23') # true
-puts Item.valid_date?('2018-13-20') # false
-puts Item.valid_date?('2018-12-32') # false
-puts Item.valid_date?('10-25-2019') # false
