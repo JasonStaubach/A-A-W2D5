@@ -9,4 +9,11 @@ class Passenger
     def has_flight?(str)
         @flight_numbers.include?(str)
     end
+
+    def add_flight(str)
+        if !self.has_flight(str)
+            @flight_numbers << str.upcase
+        end
+    end
+        
 end
