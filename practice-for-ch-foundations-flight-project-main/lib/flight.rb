@@ -13,8 +13,21 @@ class Flight
     end
 
     def board_passenger(passenger)
-        return if self.full?
+    
+        if passenger.has_flight?(@flight_number)
+            return nil if self.full?
 
+            @passengers << passenger
+        end
     end
+
+    def list_passengers
+        (0...@passengers.length).map {|i| @passengers[i].name}
+    end
+
+    def [](index)
+        @passengers[index]
+    end
+
 
 end
