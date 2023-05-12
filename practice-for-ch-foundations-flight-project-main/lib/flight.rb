@@ -29,5 +29,9 @@ class Flight
         @passengers[index]
     end
 
+    def <<(passenger)
+        board_passenger(passenger)
+    end
+
 
 end
