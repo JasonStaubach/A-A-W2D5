@@ -87,6 +87,10 @@ class List
         true
     end 
 
+    def sort_by_date!
+        @items.sort_by! {|item| item.deadline}
+    end
+
 
 end
 
